@@ -15,6 +15,13 @@ include $(CLEAR_VARS)
 LOCAL_COPY_HEADERS_TO := qcom/camera
 LOCAL_COPY_HEADERS := QCameraFormat.h
 
+LOCAL_CLANG_CFLAGS += \
+        -Wno-error=unused-private-field \
+        -Wno-error=strlcpy-strlcat-size \
+        -Wno-error=gnu-designator \
+        -Wno-error=unused-variable \
+        -Wno-error=format
+
 LOCAL_SRC_FILES := \
         util/QCameraBufferMaps.cpp \
         util/QCameraCmdThread.cpp \

@@ -995,6 +995,7 @@ QCameraParameters::QCameraParameters()
       mAecSkipDisplayFrameBound(0),
       m_bQuadraCfa(false),
       m_bSmallJpegSize(false),
+      m_bDualCameraMode(false),
       mDualCamId(0),
       m_bMainCamera(false)
 {
@@ -1131,6 +1132,7 @@ QCameraParameters::QCameraParameters(const String8 &params)
     mAecSkipDisplayFrameBound(0),
     m_bQuadraCfa(false),
     m_bSmallJpegSize(false),
+    m_bDualCameraMode(false),
     mDualCamId(0),
     m_bMainCamera(false)
 {
@@ -5294,6 +5296,7 @@ int32_t QCameraParameters::updateParameters(const String8& p,
 
     if ((rc = setLongshotParam(params)))                final_rc = rc;
     if ((rc = setLedCalibration(params)))               final_rc = rc;
+    if ((rc = setDualCameraMode(params)))               final_rc = rc;
 
     setQuadraCfa(params);
     setVideoBatchSize();
@@ -14891,6 +14894,9 @@ int32_t QCameraParameters::setDualCameraMode(const QCameraParameters& params)
 bool QCameraParameters::getDualCameraMode()
 {
     return m_bDualCameraMode;
+}
+    }
+    return NO_ERROR;
 }
 
 /*===========================================================================

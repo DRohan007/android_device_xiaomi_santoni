@@ -1264,6 +1264,7 @@ private:
     uint8_t mAecSkipDisplayFrameBound;
     bool m_bQuadraCfa;
     bool m_bSmallJpegSize;
+    bool m_bDualCameraMode;
     int32_t mDualCamId;
     bool m_bMainCamera;
 };
